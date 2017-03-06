@@ -1,0 +1,35 @@
+
+	<div class="add-courses ">
+		<h1>Liste des courses</h1>
+
+	<form>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Ajouter un produit" autofocus #courseContenu required minlength="2">
+			<br>
+			<button (click)="addCourse($event, courseContenu)" class="btn btn-primary btn-block">Ajouter</button>
+		</div>
+</form>
+
+	</div>	
+			<div class="course-list">
+				<div *ngFor='let course of courses'>
+					<div class="col-md-1">
+						<input type="checkbox" [checked]="course.finito" (click)="updateStatus(course)">
+					</div>
+					<div class="col-md-7">
+						<span *ngIf="!course.isEditMode">
+							<s *ngIf="course.finito">{{course.contenu}}</s>
+							<p *ngIf="!course.finito">{{course.contenu}}</p>
+						</span>
+						<input *ngIf="course.isEditMode" type="text" [value]="course.contenu" (keypress)="updateCourseContenu($event, course)">
+						<input type="button" *ngIf="course.isEditMode" value="Cancel" (click)="setEditState(course, false)" class="btn btn-warning">
+					</div>
+					<div class="col-md-4">
+						
+						<input *ngIf="!course.finito" (click)="setEditState(course, true)" type="button" class="btn btn-default pull-right" value="Editer">
+						<input (click)="deleteCourse(course)" type="button" class="btn btn-danger pull-right" value="Supprimer">
+					</div>
+				</div>
+			</div>
+		
+
