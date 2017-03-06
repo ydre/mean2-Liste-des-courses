@@ -1,5 +1,13 @@
 # CoursesApp
 
+
+Training project with MEAN2 stack. 
+Some crud server, used mlab for the mongodb.
+
+The purpose was some training with angular2.
+
+
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
 ## Development server
